@@ -7,7 +7,7 @@ config BR2_PACKAGE_PYTHON_SIP
 	depends on BR2_INSTALL_LIBSTDCPP # qt
 	depends on BR2_TOOLCHAIN_HAS_THREADS # qt
 	depends on BR2_USE_MMU # qt
-	select BR2_PACKAGE_QT
+	depends on BR2_PACKAGE_QT || BR2_PACKAGE_QT5
 	help
 	  SIP is a tool that makes it very easy to create Python
 	  bindings for C and C++ libraries. It was originally
