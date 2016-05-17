@@ -1,0 +1,21 @@
+Fix build issue in disabling QRawFont
+
+Move a definition of a function to the inside of the if block for PyQt_QRawFont.
+The function is for QRawFont::LayoutFlag, defined only in the block.
+
+Signed-off-by: Akihiko Odaki <akihiko.odaki.4i@stu.hosei.ac.jp>
+---
+Index: PyQt5_gpl-5.6.orig/sip/QtGui/qrawfont.sip
+===================================================================
+--- PyQt5_gpl-5.6.orig/sip/QtGui/qrawfont.sip
++++ PyQt5_gpl-5.6/sip/QtGui/qrawfont.sip
+@@ -90,7 +90,8 @@
+ %End
+ };
+ 
+-%End
+ %If (Qt_5_1_0 -)
+ QFlags<QRawFont::LayoutFlag> operator|(QRawFont::LayoutFlag f1, QFlags<QRawFont::LayoutFlag> f2);
+ %End
++
++%End

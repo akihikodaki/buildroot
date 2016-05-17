@@ -1,0 +1,19 @@
+Hide QFont::cacheStatistics which isn't available in QWS
+
+Signed-off-by: Sergey Kostanbaev <sergey.kostanbaev@gmail.com>
+Signed-off-by: Akihiko Odaki <akihiko.odaki.4i@stu.hosei.ac.jp>
+---
+
+diff -ur PyQt5_gpl-5.6/sip/QtGui/qfont.sip pyqt-4.9.6/sip/QtGui/qfont.sip
+--- PyQt5_gpl-5.6/sip/QtGui/qfont.sip	2016-04-24 19:55:17.000000000 +0900
++++ PyQt5_gpl-5.6/sip/QtGui/qfont.sip	2016-05-03 10:30:19.604298543 +0900
+@@ -165,7 +165,9 @@
+     static void removeSubstitutions(const QString &);
+     static void initialize();
+     static void cleanup();
++%If (!WS_QWS)
+     static void cacheStatistics();
++%End
+     QString defaultFamily() const;
+     QString lastResortFamily() const;
+     QString lastResortFont() const;
