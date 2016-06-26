@@ -1,0 +1,26 @@
+Remove unused imports from tools/js2c.py
+
+Review URL: https://codereview.chromium.org/1359033002
+
+Cr-Commit-Position: refs/heads/master@{#30941}
+
+This is a backport of commit fd1024ffb7e24bf03dd3fa3cd3806dd46b04ee6d.
+
+Signed-off-by: <akihiko.odaki.4i@stu.hosei.ac.jp>
+---
+Index: qt5webengine-5.6.1/src/3rdparty/chromium/v8/tools/js2c.py
+===================================================================
+--- qt5webengine-5.6.1.orig/src/3rdparty/chromium/v8/tools/js2c.py
++++ qt5webengine-5.6.1/src/3rdparty/chromium/v8/tools/js2c.py
+@@ -31,10 +31,9 @@
+ # char arrays. It is used for embedded JavaScript code in the V8
+ # library.
+ 
+-import os, re, sys, string
++import os, re
+ import optparse
+ import jsmin
+-import bz2
+ import textwrap
+ 
+ 

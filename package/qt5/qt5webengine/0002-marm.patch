@@ -1,0 +1,16 @@
+Allow to set arm_thumb=0 with -marm
+
+Signed-off-by: Akihiko Odaki <akihiko.odaki.4i@stu.hosei.ac.jp>
+---
+Index: qt5webengine-5.6.1/src/core/gyp_run.pro
+===================================================================
+--- qt5webengine-5.6.1.orig/src/core/gyp_run.pro
++++ qt5webengine-5.6.1/src/core/gyp_run.pro
+@@ -80,6 +80,7 @@
+         else: GYP_CONFIG += arm_fpu=\"$$MFPU\" arm_neon=0 arm_neon_optional=0
+     }
+ 
++    contains(QMAKE_CFLAGS, "-marm"): GYP_CONFIG += arm_thumb=0
+     contains(QMAKE_CFLAGS, "-mthumb"): GYP_CONFIG += arm_thumb=1
+ }
+ 

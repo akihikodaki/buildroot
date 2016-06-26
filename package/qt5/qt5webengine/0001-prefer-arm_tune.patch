@@ -1,0 +1,19 @@
+Prefer arm_tune to arm_arch
+
+If user specifies arm_tune, ignore default arm_arch.
+
+Signed-off-by: Akihiko Odaki <akihiko.odaki.4i@stu.hosei.ac.jp>
+---
+Index: qt5webengine-5.6.1/src/3rdparty/chromium/build/common.gypi
+===================================================================
+--- qt5webengine-5.6.1.orig/src/3rdparty/chromium/build/common.gypi
++++ qt5webengine-5.6.1/src/3rdparty/chromium/build/common.gypi
+@@ -3977,7 +3977,7 @@
+                       '-target arm-linux-gnueabihf',
+                     ],
+                   }],
+-                  ['arm_arch!=""', {
++                  ['arm_arch!="" and arm_tune==""', {
+                     'cflags': [
+                       '-march=<(arm_arch)',
+                     ],
